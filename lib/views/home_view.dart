@@ -1,12 +1,51 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:pan_out/core/contants/constants.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        backgroundColor: kIconColor,
+        onPressed: () {
+          // Overlay.of(context).insert(entry);
+        },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: kPrimaryColor,
+        shape: CircularNotchedRectangle(),
+        notchMargin: 3.0,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.house),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.bar_chart),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.store),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              color: Colors.white,
+              onPressed: () {},
+            )
+          ],
+        ),
+      ),
+      body: SafeArea(
         child: Column(
           children: [
             HomeNavbar(),
@@ -29,15 +68,14 @@ class HomeNavbar extends StatelessWidget {
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15)),
-        color: Color(0xFF672C76),
+            bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
+        color: kPrimaryColor,
       ),
       child: Container(
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Color(0xFF2B2A2A),
+          color: kBgColor,
         ),
         child: Row(
           children: [
@@ -61,10 +99,9 @@ class HomeNavbar extends StatelessWidget {
                     width: 180,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Color(0xFF0F7D27),
+                      color: kGreenColor,
                     ),
-                    child: Text("100%",
-                        style: TextStyle(color: Colors.white)),
+                    child: Text("100%", style: TextStyle(color: Colors.white)),
                   ),
                   SizedBox(
                     height: 10,
@@ -76,10 +113,9 @@ class HomeNavbar extends StatelessWidget {
                     width: 180,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Color(0xFF0F7D27),
+                      color: kGreenColor,
                     ),
-                    child: Text("100%",
-                        style: TextStyle(color: Colors.white)),
+                    child: Text("100%", style: TextStyle(color: Colors.white)),
                   ),
                 ],
               ),
