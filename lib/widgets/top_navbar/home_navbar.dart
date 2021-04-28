@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/core/contants/constants.dart';
+import 'package:pan_out/theme/size_config.dart';
 
 class HomeNavbar extends StatelessWidget {
   const HomeNavbar({
@@ -9,15 +10,15 @@ class HomeNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 145,
-      padding: EdgeInsets.all(15),
+      height: getProportionateScreenHeight(145),
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
         color: kPrimaryColor,
       ),
       child: Container(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: kBgColor,
@@ -40,8 +41,8 @@ class HomeNavbar extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     padding: EdgeInsets.only(right: 20),
-                    height: 20,
-                    width: 180,
+                    height: getProportionateScreenHeight(20),
+                    width: getProportionateScreenWidth(171),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: kGreenColor,
@@ -54,8 +55,8 @@ class HomeNavbar extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     padding: EdgeInsets.only(right: 20),
-                    height: 20,
-                    width: 180,
+                    height: getProportionateScreenHeight(20),
+                    width: getProportionateScreenWidth(171),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: kGreenColor,

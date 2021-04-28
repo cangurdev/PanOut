@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/core/contants/constants.dart';
+import 'package:pan_out/theme/size_config.dart';
 
 class FormNavbar extends StatelessWidget {
   final String title;
@@ -8,7 +9,7 @@ class FormNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 145,
+        height: getProportionateScreenHeight(145),
         width: double.infinity,
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
