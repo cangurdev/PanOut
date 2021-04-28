@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/core/contants/constants.dart';
-import 'package:pan_out/widgets/form_icon_button.dart';
+import 'package:pan_out/widgets/category_card.dart';
+import 'package:pan_out/widgets/submit_button.dart';
 
 class FormBody extends StatelessWidget {
   @override
@@ -37,50 +38,7 @@ class FormBody extends StatelessWidget {
               CategoryCard(),
             ],
           ),
-          ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                "Devam Et",
-                style: TextStyle(fontSize: 22),
-              ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.grey),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  )),
-                  minimumSize: MaterialStateProperty.all<Size>(Size(256, 48))))
-        ],
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 120,
-      height: 120,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        color: kBgColor,
-      ),
-      child: Column(
-        children: [
-          FormIconButton(
-            icon: Icons.book,
-            route: '/',
-          ),
-          Text(
-            "Ders",
-            style: TextStyle(color: Colors.white),
-          )
+          SubmitButton(text: "Devam Et"),
         ],
       ),
     );
