@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/views/home_view.dart';
+import 'package:pan_out/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }
