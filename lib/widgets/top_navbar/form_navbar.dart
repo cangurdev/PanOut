@@ -20,8 +20,7 @@ class FormNavbar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title,
-                style: TextStyle(color: Colors.white, fontSize: 24)),
+            Text(title, style: TextStyle(color: Colors.white, fontSize: 24)),
           ],
         ));
   }

@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Fab(),
-      bottomNavigationBar: BottomNavbar(),
+      bottomNavigationBar: SizedBox(height: 64, child: BottomNavbar()),
       body: SafeArea(
         child: Column(
           children: [
