@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/core/contants/constants.dart';
+import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/routes.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/core/contants/constants.dart';
+import 'package:pan_out/theme/constants.dart';
 
 import '../button/custom_icon_button.dart';
 

@@ -1,47 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/core/contants/constants.dart';
+import 'package:flutter/rendering.dart';
+import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/category_card.dart';
 import 'package:pan_out/widgets/button/submit_button.dart';
 
-class FormBody extends StatelessWidget {
+class FormBody extends StatefulWidget {
+  @override
+  _FormBodyState createState() => _FormBodyState();
+}
+
+class _FormBodyState extends State<FormBody> {
+  int activeKey = -1;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenWidth(305),
-      height: getProportionateScreenHeight(500),
-      margin: EdgeInsets.only(top: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-        color: kGrayColor,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CategoryCard(),
-              CategoryCard(),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CategoryCard(),
-              CategoryCard(),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CategoryCard(),
-              CategoryCard(),
-            ],
-          ),
-          SubmitButton(text: "Devam Et"),
-        ],
-      ),
-    );
+        width: getProportionateScreenWidth(305),
+        height: getProportionateScreenHeight(530),
+        margin: EdgeInsets.only(top: 12),
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+          color: kGrayColor,
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 8,
+              child: Center(
+                child: GridView.builder(
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2),
+                    itemBuilder: (BuildContext context, int i) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            activeKey = i;
+                          });
+                        },
+                        child: CategoryCard(
+                          id: i,
+                          bgColor: activeKey == i ? kIconColor : kBgColor,
+                        ),
+                      );
+                    }),
+              ),
+            ),
+            SizedBox(height: 4),
+            Expanded(
+              flex: 0,
+              child: SubmitButton(
+                  text: "Devam Et",
+                  bgColor: activeKey != -1 ? kSecondaryColor : Colors.grey),
+            )
+          ],
+        ));
   }
 }

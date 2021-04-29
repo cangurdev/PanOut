@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/core/contants/constants.dart';
+import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 
 class HomeNavbar extends StatelessWidget {
