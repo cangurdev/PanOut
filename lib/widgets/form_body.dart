@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/core/contants/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/category_card.dart';
-import 'package:pan_out/widgets/submit_button.dart';
+import 'package:pan_out/widgets/button/submit_button.dart';
 
 class FormBody extends StatelessWidget {
   @override

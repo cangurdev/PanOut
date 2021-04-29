@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/core/contants/constants.dart';
 
-import 'custom_icon_button.dart';
+import '../button/custom_icon_button.dart';
 
 class BottomNavbar extends StatelessWidget {
   const BottomNavbar({
