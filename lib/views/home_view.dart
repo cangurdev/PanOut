@@ -3,6 +3,7 @@ import 'package:pan_out/theme/size_config.dart';
 
 //import widgets
 import 'package:pan_out/widgets/button/Fab.dart';
+import 'package:pan_out/widgets/card/home_card.dart';
 import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
 import 'package:pan_out/widgets/navbar/home_navbar.dart';
 
@@ -19,6 +20,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             HomeNavbar(),
+            HomeCard(),
           ],
         ),
       ),
