@@ -4,11 +4,13 @@ import 'package:pan_out/widgets/button/form_icon_button.dart';
 
 class CategoryCard extends StatefulWidget {
   final Color bgColor;
+  final Color iconColor;
   final int id;
   const CategoryCard({
     Key key,
     this.bgColor,
     this.id,
+    this.iconColor,
   }) : super(key: key);
 
   @override
@@ -33,6 +35,7 @@ class _CategoryCardState extends State<CategoryCard> {
         children: [
           FormIconButton(
             icon: Icons.book,
+            color: widget.iconColor,
           ),
           Text(
             "Ders",

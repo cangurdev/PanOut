@@ -43,6 +43,7 @@ class _FormBodyState extends State<FormBody> {
                         child: CategoryCard(
                           id: i,
                           bgColor: activeKey == i ? kIconColor : kBgColor,
+                          iconColor: activeKey == i ? kBgColor: kIconColor,
                         ),
                       );
                     }),

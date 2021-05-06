@@ -11,7 +11,7 @@ class HomeNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: getProportionateScreenHeight(145),
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
