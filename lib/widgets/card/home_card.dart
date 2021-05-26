@@ -9,8 +9,10 @@ class HomeCard extends StatelessWidget {
     return Container(
       width: getProportionateScreenWidth(300),
       height: getProportionateScreenHeight(250),
-      color: kGrayColor,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+          color: kGrayColor),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         FormIconButton(
           icon: Icons.book,
           color: kIconColor,
@@ -18,7 +20,9 @@ class HomeCard extends StatelessWidget {
         Text(
           "Kitap",
           style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.left,
+        ),
+        SizedBox(
+          height: 15,
         ),
         Text(
           "Günlük",
@@ -27,13 +31,23 @@ class HomeCard extends StatelessWidget {
         Container(
           alignment: Alignment.centerRight,
           padding: EdgeInsets.only(right: 20),
-          height: getProportionateScreenHeight(20),
-          width: getProportionateScreenWidth(171),
+          height: getProportionateScreenHeight(30),
+          width: getProportionateScreenWidth(250),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: kGreenColor,
           ),
-          child: Text("100%", style: TextStyle(color: Colors.white)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child:
+                    Text("Sayfa Sayısı", style: TextStyle(color: Colors.white)),
+              ),
+              Text("100%", style: TextStyle(color: Colors.white)),
+            ],
+          ),
         ),
       ]),
     );

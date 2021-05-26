@@ -20,6 +20,13 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             HomeNavbar(),
+            SizedBox(
+              height: 20,
+            ),
+            HomeCard(),
+            SizedBox(
+              height: 20,
+            ),
             HomeCard(),
           ],
         ),
