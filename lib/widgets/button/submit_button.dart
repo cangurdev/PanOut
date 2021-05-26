@@ -5,14 +5,16 @@ import 'package:pan_out/theme/size_config.dart';
 class SubmitButton extends StatelessWidget {
   final String text;
   final Color bgColor;
-  const SubmitButton({Key key, this.text, this.bgColor}) : super(key: key);
+  final String category;
+  const SubmitButton({Key key, this.text, this.bgColor, this.category})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (bgColor == kSecondaryColor){
-          print("Basıldım");
+        if (bgColor == kSecondaryColor) {
+          Navigator.pushNamed(context, '/type-form', arguments: category);
         }
       },
       child: Text(
