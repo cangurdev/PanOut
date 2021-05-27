@@ -56,6 +56,7 @@ class _FormBodyState extends State<FormBody> {
               child: SubmitButton(
                   text: "Devam Et",
                   category: category,
+                  route:'/type-form',
                   bgColor: activeKey != -1 ? kSecondaryColor : Colors.grey),
             )
           ],

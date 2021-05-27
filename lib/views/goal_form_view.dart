@@ -13,17 +13,15 @@ class _GoalFormState extends State<GoalForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size(double.infinity, getProportionateScreenHeight(145)),
+        child: SafeArea(child: FormNavbar(title: "Hedefini Belirle")),
+      ),
       bottomNavigationBar: SizedBox(
           height: getProportionateScreenHeight(64), child: BottomNavbar()),
-      body: SafeArea(
-          child: Column(
-        children: [
-          FormNavbar(
-            title: "Hedefini Belirle",
-          ),
-          FormBody()
-        ],
-      )),
+      body: Center(
+        child: FormBody(),
+      ),
     );
   }
 }

@@ -6,7 +6,9 @@ class SubmitButton extends StatelessWidget {
   final String text;
   final Color bgColor;
   final String category;
-  const SubmitButton({Key key, this.text, this.bgColor, this.category})
+  final String route;
+  const SubmitButton(
+      {Key key, this.text, this.bgColor, this.category, this.route})
       : super(key: key);
 
   @override
@@ -14,7 +16,8 @@ class SubmitButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         if (bgColor == kSecondaryColor) {
-          Navigator.pushNamed(context, '/type-form', arguments: category);
+          print(route);
+          Navigator.pushNamed(context, route.toString(), arguments: category);
         }
       },
       child: Text(
