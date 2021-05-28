@@ -16,7 +16,6 @@ class SubmitButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         if (bgColor == kSecondaryColor) {
-          print(route);
           Navigator.pushNamed(context, route.toString(), arguments: category);
         }
       },
