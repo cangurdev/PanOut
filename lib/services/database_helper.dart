@@ -1,31 +1,7 @@
 import 'dart:async';
+import 'package:pan_out/models/goal.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
-class Goal {
-  int id;
-  String category;
-  String type;
-  String frequency;
-  int amount;
-
-  Goal({
-    this.id,
-    this.category,
-    this.type,
-    this.frequency,
-    this.amount,
-  });
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'category': category,
-      'type': type,
-      'frequency': frequency,
-      'amount': amount,
-    };
-  }
-}
 
 class DatabaseHelper {
   static Database _database;
