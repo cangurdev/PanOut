@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/widgets/button/edit_button.dart';
 
 import 'progress_bar.dart';
 
@@ -17,26 +18,13 @@ class DetailProgress extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+         mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "-",
-              style: TextStyle(
-                fontSize: 64,
-                color: Colors.white,
-              ),
-            ),
             ProgressBar(
               amount: amount,
               text: text,
             ),
-            Text(
-              "+",
-              style: TextStyle(
-                fontSize: 48,
-                color: Colors.white,
-              ),
-            ),
+            EditButton(amount:amount),
           ],
         )
       ],

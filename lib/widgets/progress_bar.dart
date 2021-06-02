@@ -28,7 +28,7 @@ class ProgressBar extends StatelessWidget {
             backgroundColor: kBgColor,
             value: amount / 100,
             color: kGreenColor,
-            minHeight: getProportionateScreenHeight(30),
+            minHeight: getProportionateScreenHeight(35),
           ),
         ),
         Container(

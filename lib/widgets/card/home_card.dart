@@ -32,11 +32,19 @@ class HomeCard extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Text(
-            "Günlük",
-            style: TextStyle(color: Colors.white),
-          ),
-          ProgressBar(amount: 60, text: "Sayfa Sayısı",),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(
+              "Günlük",
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            ProgressBar(
+              amount: 60,
+              text: "Sayfa Sayısı",
+            ),
+          ]),
         ]),
       ),
     );
