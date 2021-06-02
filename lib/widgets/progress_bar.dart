@@ -21,7 +21,7 @@ class ProgressBar extends StatelessWidget {
             color: kGreenColor,
           ),
           borderRadius: BorderRadius.circular(30)),
-      child: Stack(children: [
+      child: Stack(alignment: Alignment.center, children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: LinearProgressIndicator(
@@ -38,10 +38,20 @@ class ProgressBar extends StatelessWidget {
             amount.toString() + "/100",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 16,
             ),
           ),
-        )
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 10),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
       ]),
     );
   }
