@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
 import 'package:pan_out/widgets/navbar/form_navbar.dart';
-import 'package:pan_out/widgets/type_form_body.dart';
+import 'package:pan_out/widgets/body/type_form_body.dart';
 
 class GoalTypeForm extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
-import 'package:pan_out/widgets/form_body.dart';
+import 'package:pan_out/widgets/body/form_body.dart';
 import 'package:pan_out/widgets/navbar/form_navbar.dart';
 
 class GoalForm extends StatefulWidget {

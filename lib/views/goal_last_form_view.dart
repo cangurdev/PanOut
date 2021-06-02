@@ -4,8 +4,8 @@ import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/button/submit_button.dart';
 import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
 import 'package:pan_out/widgets/navbar/form_navbar.dart';
-import 'package:pan_out/widgets/dropdown_input.dart';
-import 'package:pan_out/widgets/text_input.dart';
+import 'package:pan_out/widgets/input/dropdown_input.dart';
+import 'package:pan_out/widgets/input/text_input.dart';
 
 class GoalLastForm extends StatelessWidget {
   @override

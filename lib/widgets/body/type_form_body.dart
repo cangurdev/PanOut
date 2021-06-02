@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/widgets/button/submit_button.dart';
-import 'dropdown_input.dart';
+import '../input/dropdown_input.dart';
 
 class TypeFormBody extends StatefulWidget {
   const TypeFormBody({
