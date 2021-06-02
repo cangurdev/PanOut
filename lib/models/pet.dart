@@ -3,12 +3,13 @@ class Pet {
   int hungar;
   int happiness;
   String name;
-  String image;
+  String avatar;
 
   Pet({
+    this.id,
     this.hungar,
     this.happiness,
-    this.image,
+    this.avatar,
     this.name,
   });
   Map<String, dynamic> toMap() {
@@ -16,7 +17,7 @@ class Pet {
       'id': id,
       'hungar': hungar,
       'happiness': happiness,
-      'image': image,
+      'avatar': avatar,
       'name': name,
     };
   }
