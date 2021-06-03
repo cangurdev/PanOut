@@ -13,6 +13,7 @@ class FormBody extends StatefulWidget {
 class _FormBodyState extends State<FormBody> {
   int activeKey = -1;
   String category = "";
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,13 +39,15 @@ class _FormBodyState extends State<FormBody> {
                         onTap: () {
                           setState(() {
                             activeKey = i;
-                            category = "ders";
+                            category = kCategories[i];
                           });
                         },
                         child: CategoryCard(
                           id: i,
                           bgColor: activeKey == i ? kIconColor : kBgColor,
                           iconColor: activeKey == i ? kBgColor : kIconColor,
+                          category: kCategories[i],
+                          icon: kIcons[i],
                         ),
                       );
                     }),
@@ -55,8 +58,8 @@ class _FormBodyState extends State<FormBody> {
               flex: 0,
               child: SubmitButton(
                   text: "Devam Et",
-                  category: category,
-                  route:'/type-form',
+                  category: activeKey,
+                  route: '/type-form',
                   bgColor: activeKey != -1 ? kSecondaryColor : Colors.grey),
             )
           ],

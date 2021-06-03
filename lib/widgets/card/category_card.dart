@@ -6,11 +6,15 @@ class CategoryCard extends StatefulWidget {
   final Color bgColor;
   final Color iconColor;
   final int id;
+  final String category;
+  final IconData icon;
   const CategoryCard({
     Key key,
     this.bgColor,
     this.id,
     this.iconColor,
+    this.category,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -34,11 +38,11 @@ class _CategoryCardState extends State<CategoryCard> {
       child: Column(
         children: [
           FormIconButton(
-            icon: Icons.book,
+            icon: widget.icon,
             color: widget.iconColor,
           ),
           Text(
-            "Ders",
+           widget.category,
             style: TextStyle(color: Colors.white),
           )
         ],

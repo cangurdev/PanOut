@@ -5,7 +5,7 @@ import 'package:pan_out/theme/size_config.dart';
 class SubmitButton extends StatelessWidget {
   final String text;
   final Color bgColor;
-  final String category;
+  final int category;
   final String route;
   const SubmitButton(
       {Key key, this.text, this.bgColor, this.category, this.route})

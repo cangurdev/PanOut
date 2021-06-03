@@ -50,6 +50,7 @@ class _DropdownInputState extends State<DropdownInput> {
                 dropdownValue = newValue;
               });
               widget.callback(newValue);
+              print(newValue);
             },
             dropdownColor: Colors.white,
             items: widget.choices.map<DropdownMenuItem<String>>((String value) {

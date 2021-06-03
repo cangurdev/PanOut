@@ -26,7 +26,7 @@ class GoalLastForm extends StatelessWidget {
                 children: [
                   DropdownInput(
                     title: "Hedef Sıklığın Nedir?",
-                    choices: ["Günlük", "Haftalık"],
+                    choices: kFrequencies,
                   ),
                   TextInput(
                     title: "Kaç sayfa okumak istiyorsun",

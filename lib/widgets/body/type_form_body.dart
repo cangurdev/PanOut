@@ -13,23 +13,25 @@ class TypeFormBody extends StatefulWidget {
 }
 
 class _TypeFormBodyState extends State<TypeFormBody> {
-  String category;
+  String type = "";
+
   @override
   Widget build(BuildContext context) {
+    int index = ModalRoute.of(context).settings.arguments as int;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         DropdownInput(
           title: "Hedef Türü Seç",
-          choices: ["Sayfa Sayısı", "Kitap Sayısı"],
-          callback: (val)=>setState(()=> category = val),
+          choices: kTypes[index],
+          callback: (val) => setState(() => type = val),
         ),
         Expanded(
           flex: 0,
           child: SubmitButton(
               text: "Devam Et",
               route: "/last-form",
-              category: category,
+              category: kTypes[index].indexOf(type),
               bgColor: kSecondaryColor),
         ),
       ],
