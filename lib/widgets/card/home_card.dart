@@ -5,8 +5,17 @@ import 'package:pan_out/widgets/button/form_icon_button.dart';
 import 'package:pan_out/widgets/progress_bar.dart';
 
 class HomeCard extends StatelessWidget {
+  final int amount;
+  final String barText;
+  final String category;
+  final String frequency;
+
   const HomeCard({
     Key key,
+    this.amount,
+    this.barText,
+    this.category,
+    this.frequency,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,7 @@ class HomeCard extends StatelessWidget {
             color: kIconColor,
           ),
           Text(
-            "Kitap",
+            category,
             style: TextStyle(color: Colors.white),
           ),
           SizedBox(
@@ -34,15 +43,15 @@ class HomeCard extends StatelessWidget {
           ),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
-              "Günlük",
+              frequency,
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(
               height: 5,
             ),
             ProgressBar(
-              amount: 60,
-              text: "Sayfa Sayısı",
+              amount: amount,
+              text: barText,
             ),
           ]),
         ]),
