@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/card/category_card.dart';
 import 'package:pan_out/widgets/button/submit_button.dart';
+import 'package:provider/provider.dart';
 
 class FormBody extends StatefulWidget {
   @override
@@ -12,7 +14,6 @@ class FormBody extends StatefulWidget {
 
 class _FormBodyState extends State<FormBody> {
   int activeKey = -1;
-  String category = "";
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,11 @@ class _FormBodyState extends State<FormBody> {
                         onTap: () {
                           setState(() {
                             activeKey = i;
-                            category = kCategories[i];
+                            context.read<Store>().setIndex(i);
                           });
+                          context
+                              .read<Store>()
+                              .updateGoal("category", kCategories[i]);
                         },
                         child: CategoryCard(
                           id: i,
@@ -58,7 +62,6 @@ class _FormBodyState extends State<FormBody> {
               flex: 0,
               child: SubmitButton(
                   text: "Devam Et",
-                  category: activeKey,
                   route: '/type-form',
                   bgColor: activeKey != -1 ? kSecondaryColor : Colors.grey),
             )

@@ -27,9 +27,11 @@ class GoalLastForm extends StatelessWidget {
                   DropdownInput(
                     title: "Hedef Sıklığın Nedir?",
                     choices: kFrequencies,
+                    goalKey: "frequency",
                   ),
                   TextInput(
                     title: "Kaç sayfa okumak istiyorsun",
+                    goalKey: "amount",
                   ),
                 ],
               ),

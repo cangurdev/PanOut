@@ -21,5 +21,12 @@ class Goal {
       'amount': amount,
     };
   }
-}
 
+  Goal.fromMap(Map<String, dynamic> map) {
+    this.id = map["id"];
+    this.category = map["category"];
+    this.type = map["type"];
+    this.frequency = map["frequency"];
+    this.amount = map["amount"];
+  }
+}

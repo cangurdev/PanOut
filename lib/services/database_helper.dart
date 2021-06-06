@@ -47,13 +47,7 @@ class DatabaseHelper {
 
     // Convert the List<Map<String, dynamic> into a List<Goal>.
     return List.generate(maps.length, (i) {
-      return Goal(
-        id: maps[i]['id'],
-        category: maps[i]['category'],
-        type: maps[i]['type'],
-        frequency: maps[i]['frequency'],
-        amount: maps[i]['amount'],
-      );
+      return Goal.fromMap(maps[i]);
     });
   }
 
