@@ -25,7 +25,7 @@ class SubmitButton extends StatelessWidget {
             print(item.toMap());
           }
           context.read<Store>().clearGoal();
-          Navigator.pushNamed(context, "/");
+          Navigator.pushNamed(context, "/home");
         } else if (bgColor == kSecondaryColor) {
           Navigator.pushNamed(context, route.toString());
         }

@@ -4,9 +4,11 @@ import 'package:pan_out/models/goal.dart';
 class Store extends ChangeNotifier {
   Goal _goal;
   int _index;
+  List<Goal> _goals;
 
   Goal get goal => _goal;
   int get index => _index;
+  List<Goal> get goals => _goals;
 
   Store(
     this._goal,
@@ -26,6 +28,11 @@ class Store extends ChangeNotifier {
 
   void clearGoal() {
     _goal = new Goal();
+    notifyListeners();
+  }
+
+  void setGoals(List<Goal> goals){
+    _goals = goals;
     notifyListeners();
   }
 }
