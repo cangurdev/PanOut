@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/button/form_icon_button.dart';
 import 'package:pan_out/widgets/progress_bar.dart';
 
 class HomeCard extends StatelessWidget {
-  final int amount;
-  final String barText;
+  final List<Goal> goals;
   final String category;
-  final String frequency;
 
-  const HomeCard({
-    Key key,
-    this.amount,
-    this.barText,
-    this.category,
-    this.frequency,
-  }) : super(key: key);
+  const HomeCard({Key key, this.goals, this.category}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -41,19 +34,31 @@ class HomeCard extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(
-              frequency,
-              style: TextStyle(color: Colors.white),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            ProgressBar(
-              amount: amount,
-              text: barText,
-            ),
-          ]),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+                itemCount: goals.length,
+                itemBuilder: (context, index) {
+                  Goal goal = goals[index];
+                  return Center(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            goal.frequency,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          ProgressBar(
+                            amount: goal.amount,
+                            text: goal.type,
+                          ),
+                        ]),
+                  );
+                }),
+          ),
         ]),
       ),
     );

@@ -6,10 +6,26 @@ class Store extends ChangeNotifier {
   int _index;
   List<Goal> _goals;
 
+  Map<String, List<Goal>> _categories = {
+    "Ders": [],
+    "Spor": [],
+    "Kitap": [],
+    "Enstrüman": [],
+    "Sigara": [],
+    "Özel": [],
+  };
+  Map<String, List<Goal>> _frequencies = {
+    "Günlük": [],
+    "Haftalık": [],
+    "Aylık": [],
+  };
+
   Goal get goal => _goal;
   int get index => _index;
   List<Goal> get goals => _goals;
-
+  Map<String, List<Goal>> get categories => _categories;
+  Map<String, List<Goal>> get frequencies => _frequencies;
+  
   Store(
     this._goal,
   );
@@ -33,6 +49,13 @@ class Store extends ChangeNotifier {
 
   void setGoals(List<Goal> goals){
     _goals = goals;
+    notifyListeners();
+  }
+  
+  void setCategories() {
+    for (Goal goal in _goals) {
+      _categories[goal.category].add(goal);
+    }
     notifyListeners();
   }
 }

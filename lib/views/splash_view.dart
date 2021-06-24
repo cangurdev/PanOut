@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> onStart() async {
     List<Goal> goals = await db.goals();
     this.context.read<Store>().setGoals(goals);
+    this.context.read<Store>().setCategories();
   }
 
   @override
