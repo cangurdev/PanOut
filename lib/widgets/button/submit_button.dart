@@ -21,10 +21,7 @@ class SubmitButton extends StatelessWidget {
           Goal goal = context.read<Store>().goal;
           goal.current = 0;
           db.insertGoal(goal);
-          List<Goal> goals = await db.goals();
-
-          context.read<Store>().setGoals(goals);
-          context.read<Store>().setCategories();
+          context.read<Store>().addCategories(goal);
           context.read<Store>().clearGoal();
         }
         Navigator.pushNamed(context, route.toString());

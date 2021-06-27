@@ -45,8 +45,6 @@ class EditButton extends StatelessWidget {
                     DatabaseHelper db = new DatabaseHelper();
                     int newCurrent = context.read<Store>().newGoalCurrent;
                     await db.updateGoal(newCurrent, id);
-                    List<Goal> goals = await db.goals();
-                    context.read<Store>().setGoals(goals);
                     context
                         .read<Store>()
                         .updateCategories(category, id, newCurrent);
