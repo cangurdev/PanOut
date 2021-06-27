@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
+import 'package:pan_out/widgets/progress_bar.dart';
 
 class HomeNavbar extends StatelessWidget {
   const HomeNavbar({
@@ -27,41 +28,21 @@ class HomeNavbar extends StatelessWidget {
           children: [
             Image.asset(
               "assets/images/avatar.jpg",
-              width: 130,
+              width: 120,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Rıfkı", style: TextStyle(color: Colors.white)),
                   SizedBox(
-                    height: 2,
+                    height: 8,
                   ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.only(right: 20),
-                    height: getProportionateScreenHeight(20),
-                    width: getProportionateScreenWidth(171),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: kGreenColor,
-                    ),
-                    child: Text("100%", style: TextStyle(color: Colors.white)),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.only(right: 20),
-                    height: getProportionateScreenHeight(20),
-                    width: getProportionateScreenWidth(171),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: kGreenColor,
-                    ),
-                    child: Text("100%", style: TextStyle(color: Colors.white)),
+                  ProgressBar(
+                    amount: 100,
+                    text: ":)",
                   ),
                 ],
               ),

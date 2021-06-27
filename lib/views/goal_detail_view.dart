@@ -8,6 +8,8 @@ import 'package:pan_out/widgets/navbar/form_navbar.dart';
 class GoalDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final category = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(
@@ -15,7 +17,7 @@ class GoalDetail extends StatelessWidget {
           getProportionateScreenHeight(145),
         ),
         child: SafeArea(
-          child: FormNavbar(title: "Kitap Hedefleri"),
+          child: FormNavbar(title: "$category Hedefleri"),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -25,7 +27,7 @@ class GoalDetail extends StatelessWidget {
         child: BottomNavbar(),
       ),
       body: Center(
-        child: DetailBody(),
+        child: DetailBody(category: category),
       ),
     );
   }

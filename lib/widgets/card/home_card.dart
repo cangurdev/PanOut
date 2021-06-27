@@ -14,7 +14,7 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "/detail");
+        Navigator.pushNamed(context, "/detail", arguments: category);
       },
       child: Container(
         width: getProportionateScreenWidth(300),

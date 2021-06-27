@@ -16,15 +16,13 @@ class BottomNavbar extends StatelessWidget {
       notchMargin: 3.0,
       child: Row(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           CustomIconButton(
             icon: Icons.house,
-            route: '/',
+            route: '/home',
           ),
           CustomIconButton(icon: Icons.bar_chart),
-          CustomIconButton(icon: Icons.store),
-          CustomIconButton(icon: Icons.person),
         ],
       ),
     );

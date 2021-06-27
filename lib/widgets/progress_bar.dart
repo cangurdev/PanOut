@@ -15,7 +15,7 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      width: getProportionateScreenWidth(250),
+      width: getProportionateScreenWidth(210),
       decoration: BoxDecoration(
           border: Border.all(
             color: kGreenColor,

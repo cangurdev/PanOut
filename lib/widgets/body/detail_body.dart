@@ -1,27 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/models/goal.dart';
+import 'package:pan_out/store.dart';
 import 'package:pan_out/widgets/DetailProgress.dart';
+import 'package:provider/provider.dart';
 
 class DetailBody extends StatelessWidget {
+  final String category;
+  const DetailBody({
+    Key key,
+    this.category,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    List<Goal> goals = context.read<Store>().categories[category];
+    return SafeArea(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 45),
-            child: Text(
-              "Günlük Hedefler",
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
-          DetailProgress(
-            amount: 50,
-            text: "Sayfa Sayısı",
-          ),
-          DetailProgress(
-            amount: 50,
-            text: "Sayfa Sayısı",
+          SizedBox(
+            height: 400,
+            child: ListView.builder(
+                itemCount: goals.length,
+                itemBuilder: (context, index) {
+                  Goal goal = goals[index];
+                  return Center(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            goal.frequency,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          DetailProgress(
+                            amount: goal.amount,
+                            text: goal.type,
+                          ),
+                        ]),
+                  );
+                }),
           ),
         ],
       ),
