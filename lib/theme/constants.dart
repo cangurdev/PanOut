@@ -15,7 +15,6 @@ const List<String> kCategories = [
   "Spor",
   "Kitap",
   "Enstrüman",
-  "Sigara",
   "Özel"
 ];
 
@@ -25,15 +24,14 @@ const List<IconData> kIcons = [
   Icons.sports_basketball,
   Icons.book,
   Icons.music_note,
-  Icons.smoke_free,
   Icons.sms
 ];
 
 //Types
 const kTypes = [
+  ["Soru Sayısı", "Çalışma Süresi"],
   ["Sayfa Sayısı", "Kitap Sayısı"],
   ["aa", "hshshs"],
-  ["Soru Sayısı", "Çalışma Süresi"],
   ["Pratik", "Teorik"],
 ];
 

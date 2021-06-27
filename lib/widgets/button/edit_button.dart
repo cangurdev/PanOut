@@ -11,8 +11,12 @@ class EditButton extends StatelessWidget {
   final int id;
   final int current;
 
-  const EditButton({Key key, this.category, this.id, this.current})
-      : super(key: key);
+  const EditButton({
+    Key key,
+    this.category,
+    this.id,
+    this.current,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

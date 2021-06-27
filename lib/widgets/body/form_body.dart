@@ -32,7 +32,7 @@ class _FormBodyState extends State<FormBody> {
               flex: 8,
               child: Center(
                 child: GridView.builder(
-                    itemCount: 6,
+                    itemCount: kCategories.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2),
                     itemBuilder: (BuildContext context, int i) {

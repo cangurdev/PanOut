@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/widgets/button/edit_button.dart';
+import 'package:pan_out/widgets/button/remove_button.dart';
 
 import 'progress_bar.dart';
 
@@ -14,8 +15,6 @@ class DetailProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var a = goal.toMap();
-    print("ananı sikim $a");
     return Column(
       children: [
         Row(
@@ -30,7 +29,11 @@ class DetailProgress extends StatelessWidget {
               id: goal.id,
               current: goal.current,
               category: goal.category,
-            )
+            ),
+            RemoveButton(
+              id: goal.id,
+              category: goal.category,
+            ),
           ],
         )
       ],

@@ -12,7 +12,6 @@ class Store extends ChangeNotifier {
     "Spor": [],
     "Kitap": [],
     "Enstrüman": [],
-    "Sigara": [],
     "Özel": [],
   };
   Map<String, List<Goal>> _frequencies = {
@@ -85,6 +84,10 @@ class Store extends ChangeNotifier {
         break;
       }
     }
+  }
+
+  void removeFromCategories(String category, int id) {
+    _categories[category].removeWhere((goal) => goal.id == id);
   }
 
   void addCategories(Goal goal) {

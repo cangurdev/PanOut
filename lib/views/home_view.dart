@@ -33,7 +33,6 @@ class Home extends StatelessWidget {
               itemBuilder: (context, index) {
                 String category = kCategories[index];
                 List<Goal> goals = categories[category];
-                print(goals);
                 if (goals.length > 0) {
                   return HomeCard(
                     category: category,

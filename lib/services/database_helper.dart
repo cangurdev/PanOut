@@ -31,12 +31,22 @@ class DatabaseHelper {
 
   Future<void> insertGoal(Goal goal) async {
     final db = await database;
-    await db.insert('goals', goal.toMap(),conflictAlgorithm: ConflictAlgorithm.replace,);
+    await db.insert(
+      'goals',
+      goal.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<void> updateGoal(int amount, int id) async {
     final db = await database;
-    await db.rawQuery("UPDATE goals SET current = ? WHERE id = ?", [amount, id]);
+    await db
+        .rawQuery("UPDATE goals SET current = ? WHERE id = ?", [amount, id]);
+  }
+
+  Future<void> removeGoal(int id) async {
+    final db = await database;
+    await db.rawQuery("DELETE FROM goals WHERE id = ?", [id]);
   }
 
   Future<List<Goal>> goals() async {
