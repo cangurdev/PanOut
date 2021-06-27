@@ -39,7 +39,7 @@ class GoalLastForm extends StatelessWidget {
                 flex: 0,
                 child: SubmitButton(
                     text: "Oluştur",
-                    route: "/last-from",
+                    route: "/home",
                     bgColor: kSecondaryColor),
               ),
             ],

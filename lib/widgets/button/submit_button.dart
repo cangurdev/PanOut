@@ -19,16 +19,12 @@ class SubmitButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () async {
         if (text == "Oluştur") {
-          db.insertGoal(context.read<Store>().goal);
-          List<Goal> a = await db.goals();
-          for (var item in a) {
-            print(item.toMap());
-          }
+          Goal goal = context.read<Store>().goal;
+          db.insertGoal(goal);
+          context.read<Store>().addCategories(goal);
           context.read<Store>().clearGoal();
-          Navigator.pushNamed(context, "/home");
-        } else if (bgColor == kSecondaryColor) {
-          Navigator.pushNamed(context, route.toString());
         }
+        Navigator.pushNamed(context, route.toString());
       },
       child: Text(
         text,

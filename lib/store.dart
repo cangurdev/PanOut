@@ -25,7 +25,7 @@ class Store extends ChangeNotifier {
   List<Goal> get goals => _goals;
   Map<String, List<Goal>> get categories => _categories;
   Map<String, List<Goal>> get frequencies => _frequencies;
-  
+
   Store(
     this._goal,
   );
@@ -47,15 +47,20 @@ class Store extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setGoals(List<Goal> goals){
+  void setGoals(List<Goal> goals) {
     _goals = goals;
     notifyListeners();
   }
-  
+
   void setCategories() {
     for (Goal goal in _goals) {
       _categories[goal.category].add(goal);
     }
+    notifyListeners();
+  }
+
+  void addCategories(Goal goal) {
+    _categories[goal.category].add(goal);
     notifyListeners();
   }
 }
