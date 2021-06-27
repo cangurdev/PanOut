@@ -42,6 +42,7 @@ class HomeNavbar extends StatelessWidget {
                   ),
                   ProgressBar(
                     amount: 100,
+                    current: 0,
                     text: ":)",
                   ),
                 ],

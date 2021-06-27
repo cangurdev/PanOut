@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/services/database_helper.dart';
 import 'package:pan_out/store.dart';
-import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:provider/provider.dart';
 
@@ -20,8 +19,12 @@ class SubmitButton extends StatelessWidget {
       onPressed: () async {
         if (text == "Oluştur") {
           Goal goal = context.read<Store>().goal;
+          goal.current = 0;
           db.insertGoal(goal);
-          context.read<Store>().addCategories(goal);
+          List<Goal> goals = await db.goals();
+
+          context.read<Store>().setGoals(goals);
+          context.read<Store>().setCategories();
           context.read<Store>().clearGoal();
         }
         Navigator.pushNamed(context, route.toString());

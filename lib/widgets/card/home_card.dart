@@ -53,6 +53,7 @@ class HomeCard extends StatelessWidget {
                           ),
                           ProgressBar(
                             amount: goal.amount,
+                            current: goal.current,
                             text: goal.type,
                           ),
                         ]),

@@ -4,29 +4,35 @@ class Goal {
   String type;
   String frequency;
   int amount;
+  int current;
 
   Goal({
-    this.id,
     this.category,
     this.type,
     this.frequency,
     this.amount,
+    this.current,
   });
+
   Map<String, dynamic> toMap() {
-    return {
+    var map = <String, Object>{
       'id': id,
       'category': category,
       'type': type,
       'frequency': frequency,
       'amount': amount,
+      'current': current
     };
+    
+    return map;
   }
 
   Goal.fromMap(Map<String, dynamic> map) {
-    this.id = map["id"];
-    this.category = map["category"];
-    this.type = map["type"];
-    this.frequency = map["frequency"];
-    this.amount = map["amount"];
+    id = map["id"];
+    category = map["category"];
+    type = map["type"];
+    frequency = map["frequency"];
+    amount = map["amount"];
+    current = map["current"];
   }
 }

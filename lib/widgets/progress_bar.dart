@@ -5,10 +5,12 @@ import 'package:pan_out/theme/size_config.dart';
 class ProgressBar extends StatelessWidget {
   final int amount;
   final String text;
+  final int current;
   const ProgressBar({
     Key key,
     this.amount,
     this.text,
+    this.current,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class ProgressBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           child: LinearProgressIndicator(
             backgroundColor: kBgColor,
-            value: amount / 100,
+            value: current / amount,
             color: kGreenColor,
             minHeight: getProportionateScreenHeight(35),
           ),
@@ -35,7 +37,7 @@ class ProgressBar extends StatelessWidget {
           margin: EdgeInsets.only(right: 10),
           alignment: Alignment.centerRight,
           child: Text(
-            amount.toString() + "/100",
+            "$current/$amount",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,

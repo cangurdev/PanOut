@@ -32,6 +32,7 @@ class TextInput extends StatelessWidget {
             ),
             onChanged: (newValue){
               context.read<Store>().updateGoal(goalKey, int.parse(newValue));
+              context.read<Store>().setGoalValue(int.parse(newValue));
             } ,
           ),
         ),

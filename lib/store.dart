@@ -5,6 +5,7 @@ class Store extends ChangeNotifier {
   Goal _goal;
   int _index;
   List<Goal> _goals;
+  int _newGoalCurrent;
 
   Map<String, List<Goal>> _categories = {
     "Ders": [],
@@ -22,6 +23,7 @@ class Store extends ChangeNotifier {
 
   Goal get goal => _goal;
   int get index => _index;
+  int get newGoalCurrent => _newGoalCurrent;
   List<Goal> get goals => _goals;
   Map<String, List<Goal>> get categories => _categories;
   Map<String, List<Goal>> get frequencies => _frequencies;
@@ -37,13 +39,28 @@ class Store extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setGoal(Goal goal) {
+    _goal = goal;
+    notifyListeners();
+  }
+
+  void setGoalValue(int amount) {
+    _newGoalCurrent = amount;
+    notifyListeners();
+  }
+
   void setIndex(int index) {
     _index = index;
     notifyListeners();
   }
 
   void clearGoal() {
-    _goal = new Goal();
+    _goal = new Goal(
+      category: "",
+      type: "",
+      amount: 0,
+      frequency: "günlük",
+    );
     notifyListeners();
   }
 
@@ -57,6 +74,17 @@ class Store extends ChangeNotifier {
       _categories[goal.category].add(goal);
     }
     notifyListeners();
+  }
+
+  void updateCategories(String category, int id, int current) {
+    List<Goal> arr = _categories[category];
+    for (var i = 0; i < arr.length; i++) {
+      Goal goal = arr[i];
+      if (goal.id == id) {
+        _categories[category][i].current = current;
+        break;
+      }
+    }
   }
 
   void addCategories(Goal goal) {

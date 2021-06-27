@@ -22,20 +22,21 @@ class DatabaseHelper {
 
   void createDb(Database db, int version) async {
     await db.execute(
-      'CREATE TABLE "goals" ("id"	INTEGER UNIQUE,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, PRIMARY KEY("id" AUTOINCREMENT))',
+      'CREATE TABLE "goals" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, "current" INTEGER)',
     );
     await db.execute(
-      'CREATE TABLE "pet" ("id"	INTEGER UNIQUE, "avatar"	TEXT,	"name"	TEXT, "hungar"	INTEGER, "happiness"	INTEGER, PRIMARY KEY("id" AUTOINCREMENT))',
+      'CREATE TABLE "pet" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "avatar"	TEXT,	"name"	TEXT, "happiness"	INTEGER)',
     );
   }
 
   Future<void> insertGoal(Goal goal) async {
     final db = await database;
-    await db.insert(
-      'goals',
-      goal.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await db.insert('goals', goal.toMap(),conflictAlgorithm: ConflictAlgorithm.replace,);
+  }
+
+  Future<void> updateGoal(int amount, int id) async {
+    final db = await database;
+    await db.rawQuery("UPDATE goals SET current = ? WHERE id = ?", [amount, id]);
   }
 
   Future<List<Goal>> goals() async {
@@ -73,7 +74,6 @@ class DatabaseHelper {
         id: maps[i]['id'],
         name: maps[i]['name'],
         avatar: maps[i]['avatar'],
-        hungar: maps[i]['frequency'],
         happiness: maps[i]['amount'],
       );
     });

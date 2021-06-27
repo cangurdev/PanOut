@@ -37,8 +37,7 @@ class DetailBody extends StatelessWidget {
                             height: 5,
                           ),
                           DetailProgress(
-                            amount: goal.amount,
-                            text: goal.type,
+                            goal: goal,
                           ),
                         ]),
                   );
