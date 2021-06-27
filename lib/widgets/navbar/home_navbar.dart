@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/progress_bar.dart';
+import 'package:provider/provider.dart';
 
 class HomeNavbar extends StatelessWidget {
   const HomeNavbar({
@@ -42,7 +44,7 @@ class HomeNavbar extends StatelessWidget {
                   ),
                   ProgressBar(
                     amount: 100,
-                    current: 0,
+                    current: context.read<Store>().pet.happiness,
                     text: ":)",
                   ),
                 ],

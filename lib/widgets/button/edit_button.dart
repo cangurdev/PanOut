@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/models/goal.dart';
+import 'package:pan_out/models/pet.dart';
 import 'package:pan_out/services/database_helper.dart';
 import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/constants.dart';
@@ -45,9 +45,15 @@ class EditButton extends StatelessWidget {
                     DatabaseHelper db = new DatabaseHelper();
                     int newCurrent = context.read<Store>().newGoalCurrent;
                     await db.updateGoal(newCurrent, id);
-                    context
+                    int target = context
                         .read<Store>()
                         .updateCategories(category, id, newCurrent);
+
+                    if (newCurrent >= target) {
+                      Pet pet = context.read<Store>().pet;
+                      await db.increasePetHappiness(pet.happiness + 5);
+                      context.read<Store>().increasePetHappiness();
+                    }
                     Navigator.pushNamed(context, "/home");
                   },
                   child: const Text(

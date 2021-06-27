@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/services/database_helper.dart';
 import 'package:pan_out/store.dart';
 import 'package:provider/provider.dart';

@@ -20,7 +20,7 @@ class DetailBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 400,
+            height: 290,
             child: ListView.builder(
                 itemCount: goals.length,
                 itemBuilder: (context, index) {

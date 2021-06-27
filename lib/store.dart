@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
+import 'package:pan_out/models/pet.dart';
 
 class Store extends ChangeNotifier {
   Goal _goal;
   int _index;
   List<Goal> _goals;
   int _newGoalCurrent;
+  Pet _pet;
 
   Map<String, List<Goal>> _categories = {
     "Ders": [],
@@ -21,6 +23,7 @@ class Store extends ChangeNotifier {
   };
 
   Goal get goal => _goal;
+  Pet get pet => _pet;
   int get index => _index;
   int get newGoalCurrent => _newGoalCurrent;
   List<Goal> get goals => _goals;
@@ -38,8 +41,18 @@ class Store extends ChangeNotifier {
     notifyListeners();
   }
 
+  void increasePetHappiness() {
+    _pet.happiness += 5;
+    notifyListeners();
+  }
+
   void setGoal(Goal goal) {
     _goal = goal;
+    notifyListeners();
+  }
+
+  void setPet(Pet pet) {
+    _pet = pet;
     notifyListeners();
   }
 
@@ -75,15 +88,27 @@ class Store extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateCategories(String category, int id, int current) {
+  void clearCategories() {
+    _categories = {
+      "Ders": [],
+      "Spor": [],
+      "Kitap": [],
+      "Enstrüman": [],
+      "Özel": [],
+    };
+    notifyListeners();
+  }
+
+  int updateCategories(String category, int id, int current) {
     List<Goal> arr = _categories[category];
     for (var i = 0; i < arr.length; i++) {
       Goal goal = arr[i];
       if (goal.id == id) {
         _categories[category][i].current = current;
-        break;
+        return goal.amount;
       }
     }
+    return 0;
   }
 
   void removeFromCategories(String category, int id) {

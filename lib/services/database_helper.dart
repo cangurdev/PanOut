@@ -49,6 +49,11 @@ class DatabaseHelper {
     await db.rawQuery("DELETE FROM goals WHERE id = ?", [id]);
   }
 
+  Future<void> increasePetHappiness(int amount) async {
+    final db = await database;
+    await db.rawQuery("UPDATE pet SET happiness = ? WHERE id = 1", [amount]);
+  }
+
   Future<List<Goal>> goals() async {
     // Get a reference to the database.
     final db = await database;
