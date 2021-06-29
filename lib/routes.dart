@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/views/custom_goal_view.dart';
 import 'package:pan_out/views/goal_detail_view.dart';
 import 'package:pan_out/views/goal_form_view.dart';
 import 'package:pan_out/views/goal_last_form_view.dart';
@@ -13,4 +14,5 @@ final Map<String, WidgetBuilder> routes = {
   '/type-form': (context) => GoalTypeForm(),
   '/last-form': (context) => GoalLastForm(),
   '/detail': (context) => GoalDetail(),
+  '/custom': (context) => CustomGoal(),
 };

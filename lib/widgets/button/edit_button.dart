@@ -49,7 +49,7 @@ class EditButton extends StatelessWidget {
                         .read<Store>()
                         .updateCategories(category, id, newCurrent);
 
-                    if (newCurrent >= target) {
+                    if (newCurrent >= target && current <= target) {
                       Pet pet = context.read<Store>().pet;
                       await db.increasePetHappiness(pet.happiness + 5);
                       context.read<Store>().increasePetHappiness();

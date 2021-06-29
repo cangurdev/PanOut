@@ -14,7 +14,7 @@ class FormBody extends StatefulWidget {
 
 class _FormBodyState extends State<FormBody> {
   int activeKey = -1;
-
+  String route = "/type-form";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,6 +40,11 @@ class _FormBodyState extends State<FormBody> {
                         onTap: () {
                           setState(() {
                             activeKey = i;
+                            if (i == 4) {
+                              route = "/custom";
+                            } else {
+                              route = "/type-form";
+                            }
                             context.read<Store>().setIndex(i);
                           });
                           context
@@ -62,7 +67,7 @@ class _FormBodyState extends State<FormBody> {
               flex: 0,
               child: SubmitButton(
                   text: "Devam Et",
-                  route: '/type-form',
+                  route: route,
                   bgColor: activeKey != -1 ? kSecondaryColor : Colors.grey),
             )
           ],
