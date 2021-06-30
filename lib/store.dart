@@ -36,6 +36,9 @@ class Store extends ChangeNotifier {
 
   void updateGoal(String key, dynamic value) {
     Map<String, dynamic> goalMap = _goal.toMap();
+    try {
+      value = int.parse(value);
+    } catch (e) {}
     goalMap[key] = value;
     _goal = Goal.fromMap(goalMap);
     notifyListeners();

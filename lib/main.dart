@@ -12,7 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
 
   final Goal goal = new Goal(
-    category: "",
+    category: "Özel",
     type: "",
     amount: 0,
     frequency: "günlük",

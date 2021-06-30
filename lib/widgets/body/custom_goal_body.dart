@@ -14,10 +14,6 @@ class CustomGoalBody extends StatelessWidget {
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         TextInput(
           title: "Hedef Adı?",
-          goalKey: "category",
-        ),
-        TextInput(
-          title: "Hedef Türü?",
           goalKey: "type",
         ),
         TextInput(

@@ -39,11 +39,12 @@ class EditButton extends StatelessWidget {
                 ),
                 TextInput(
                   title: "Yeni Değer",
+                  goalKey: "current",
                 ),
                 TextButton(
                   onPressed: () async {
                     DatabaseHelper db = new DatabaseHelper();
-                    int newCurrent = context.read<Store>().newGoalCurrent;
+                    int newCurrent = context.read<Store>().goal.current;
                     await db.updateGoal(newCurrent, id);
                     int target = context
                         .read<Store>()

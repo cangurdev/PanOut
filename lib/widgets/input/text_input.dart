@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/size_config.dart';
 import 'package:provider/provider.dart';
+
 class TextInput extends StatelessWidget {
   final String title;
   final String goalKey;
@@ -30,10 +31,12 @@ class TextInput extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
             ),
-            onChanged: (newValue){
-              context.read<Store>().updateGoal(goalKey, int.parse(newValue));
-              context.read<Store>().setGoalValue(int.parse(newValue));
-            } ,
+            onChanged: (newValue) {
+              context.read<Store>().updateGoal(
+                    goalKey,
+                    newValue.toString(),
+                  );
+            },
           ),
         ),
       ],
