@@ -44,7 +44,13 @@ class _SplashScreenState extends State<SplashScreen> {
     for (var goal in goals) {
       goalDate = DateTime.parse(goal.date);
 
-      if (now.difference(goalDate).inDays >= 1) {
+      int difference = now.difference(goalDate).inDays;
+
+      bool checkDate = goal.frequency == "günlük" && difference >= 1 ||
+          goal.frequency == "haftalık" && difference >= 7 ||
+          goal.frequency == "aylık" && difference >= 30;
+
+      if (checkDate) {
         goal.current = 0;
         await db.updateGoal(0, goal.id); //Set 0 in db
         this.context.read<Store>().pet.happiness -= 5; //Decrease pet happiness

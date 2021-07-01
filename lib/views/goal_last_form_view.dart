@@ -29,6 +29,9 @@ class GoalLastForm extends StatelessWidget {
                     choices: kFrequencies,
                     goalKey: "frequency",
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TextInput(
                     title: "Hedef Miktarı Nedir?",
                     goalKey: "amount",
@@ -38,9 +41,7 @@ class GoalLastForm extends StatelessWidget {
               Expanded(
                 flex: 0,
                 child: SubmitButton(
-                    text: "Oluştur",
-                    route: "/home",
-                    bgColor: kSecondaryColor),
+                    text: "Oluştur", route: "/home", bgColor: kSecondaryColor),
               ),
             ],
           ),

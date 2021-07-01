@@ -92,7 +92,7 @@ class DatabaseHelper {
 
     // Query the table for all The Goals.
     final List<Map<String, dynamic>> maps = await db.query('pet');
-    print("Girdi buraya ${maps[0]['happiness']}");
+
     if (maps.length == 0) {
       return null;
     }
