@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/store.dart';
-import 'package:pan_out/widgets/DetailProgress.dart';
+import 'package:pan_out/widgets/progress/DetailProgress.dart';
 import 'package:provider/provider.dart';
 
 class DetailBody extends StatelessWidget {

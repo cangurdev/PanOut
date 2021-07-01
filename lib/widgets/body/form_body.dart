@@ -20,8 +20,7 @@ class _FormBodyState extends State<FormBody> {
     return Container(
         width: getProportionateScreenWidth(305),
         height: getProportionateScreenHeight(530),
-        margin: EdgeInsets.only(top: 12),
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
           color: kGrayColor,

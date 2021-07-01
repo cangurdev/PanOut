@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/button/form_icon_button.dart';
 
 class CategoryCard extends StatefulWidget {
@@ -8,6 +7,7 @@ class CategoryCard extends StatefulWidget {
   final int id;
   final String category;
   final IconData icon;
+  
   const CategoryCard({
     Key key,
     this.bgColor,
@@ -27,9 +27,7 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenWidth(120),
-      height: getProportionateScreenHeight(120),
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20,),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),

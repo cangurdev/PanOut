@@ -33,10 +33,17 @@ class StatisticsScreen extends StatelessWidget {
                 String category = kCategories[index];
                 List<Goal> goals = categories[category];
                 if (goals.length > 0) {
-                  return StatisticsBody(
-                    category: category,
-                    goals: goals,
-                    icon: kIcons[index],
+                  return Column(
+                    children: [
+                      StatisticsBody(
+                        category: category,
+                        goals: goals,
+                        icon: kIcons[index],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      )
+                    ],
                   );
                 } else {
                   return Container();

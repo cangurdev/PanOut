@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/widgets/button/form_icon_button.dart';
-import 'package:pan_out/widgets/progress_bar.dart';
+import 'package:pan_out/widgets/progress/progress_bar.dart';
 
 class HomeCard extends StatelessWidget {
   final List<Goal> goals;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/theme/constants.dart';
-import 'package:pan_out/theme/size_config.dart';
 import 'package:pan_out/widgets/button/form_icon_button.dart';
 
 class StatisticsBody extends StatelessWidget {
@@ -18,13 +17,9 @@ class StatisticsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: getProportionateScreenWidth(300),
-      height: getProportionateScreenHeight(250),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(30)),
-          color: kGrayColor),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
         FormIconButton(
           icon: icon,
           color: kIconColor,
@@ -77,7 +72,7 @@ class StatisticsBody extends StatelessWidget {
                 );
               }),
         ),
-      ]),
+      ],
     );
   }
 }

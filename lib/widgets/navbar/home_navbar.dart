@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
-import 'package:pan_out/widgets/progress_bar.dart';
+import 'package:pan_out/widgets/progress/progress_bar.dart';
 import 'package:provider/provider.dart';
 
 class HomeNavbar extends StatelessWidget {

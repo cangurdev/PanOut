@@ -22,7 +22,7 @@ const List<String> kCategories = [
 const List<IconData> kIcons = [
   Icons.book,
   Icons.sports_basketball,
-  Icons.book,
+  Icons.menu_book,
   Icons.music_note,
   Icons.sms,
 ];
