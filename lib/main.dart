@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
     type: "",
     amount: 0,
     frequency: "günlük",
+    current: 0,
+    total: 0,
+    currentStreak: 0,
+    longestStreak: 0,
   );
   // This widget is the root of your application.
   @override

@@ -22,7 +22,10 @@ class BottomNavbar extends StatelessWidget {
             icon: Icons.house,
             route: '/home',
           ),
-          CustomIconButton(icon: Icons.bar_chart),
+          CustomIconButton(
+            icon: Icons.bar_chart,
+            route: '/statistics',
+          ),
         ],
       ),
     );

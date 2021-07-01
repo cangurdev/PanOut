@@ -20,7 +20,6 @@ class SubmitButton extends StatelessWidget {
         if (text == "Oluştur") {
           Goal goal = context.read<Store>().goal;
           goal.current = 0;
-
           DateTime now = new DateTime.now();
           goal.date = now.toString();
 

@@ -45,15 +45,28 @@ class EditButton extends StatelessWidget {
                   onPressed: () async {
                     DatabaseHelper db = new DatabaseHelper();
                     int newCurrent = context.read<Store>().goal.current;
-                    await db.updateGoal(newCurrent, id);
-                    int target = context
-                        .read<Store>()
-                        .updateCategories(category, id, newCurrent);
+
+                    await db.updateGoal(
+                        newCurrent, id); //Update current amount in db
+                    int target = context.read<Store>().updateCategories(
+                        category,
+                        id,
+                        newCurrent); //Update current amount in state
+
+                    int newTotal =
+                        newCurrent - current; //Calculate increase amount
+                    await db.updateTotal(newTotal, id); //Update amount in db
+                    context.read<Store>().updateTotalAmount(category, id,
+                        newTotal); //Update total amount in state
 
                     if (newCurrent >= target && current <= target) {
                       Pet pet = context.read<Store>().pet;
-                      await db.increasePetHappiness(pet.happiness + 5);
-                      context.read<Store>().increasePetHappiness();
+                      await db.increasePetHappiness(
+                          pet.happiness + 5); //Increase pet happiness in db
+                      context
+                          .read<Store>()
+                          .increasePetHappiness(); //Increase pet happiness in state
+
                     }
                     Navigator.pushNamed(context, "/home");
                   },

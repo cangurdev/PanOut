@@ -22,7 +22,7 @@ class DatabaseHelper {
 
   void createDb(Database db, int version) async {
     await db.execute(
-      'CREATE TABLE "goals" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, "current" INTEGER, "date" TEXT)',
+      'CREATE TABLE "goals" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, "current" INTEGER, "date" TEXT, "total" INTEGER, "currentStreak" INTEGER, "longestStreak" INTEGER)',
     );
     await db.execute(
       'CREATE TABLE "pet" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "avatar"	TEXT,	"name"	TEXT, "happiness"	INTEGER)',
@@ -42,6 +42,16 @@ class DatabaseHelper {
     final db = await database;
     await db
         .rawQuery("UPDATE goals SET current = ? WHERE id = ?", [amount, id]);
+  }
+
+  Future<void> updateTotal(int amount, int id) async {
+    final db = await database;
+    await db.rawQuery("UPDATE goals SET total = ? WHERE id = ?", [amount, id]);
+  }
+
+  Future<void> updateDate(String date, int id) async {
+    final db = await database;
+    await db.rawQuery("UPDATE goals SET date = ? WHERE id = ?", [date, id]);
   }
 
   Future<void> removeGoal(int id) async {
@@ -76,21 +86,21 @@ class DatabaseHelper {
     );
   }
 
-  Future<List<Pet>> pet() async {
+  Future<Pet> pet() async {
     // Get a reference to the database.
     final db = await database;
 
     // Query the table for all The Goals.
     final List<Map<String, dynamic>> maps = await db.query('pet');
-
-    // Convert the List<Map<String, dynamic> into a List<Goal>.
-    return List.generate(maps.length, (i) {
-      return Pet(
-        id: maps[i]['id'],
-        name: maps[i]['name'],
-        avatar: maps[i]['avatar'],
-        happiness: maps[i]['amount'],
-      );
-    });
+    print("Girdi buraya ${maps[0]['happiness']}");
+    if (maps.length == 0) {
+      return null;
+    }
+    return Pet(
+      id: maps[0]['id'],
+      name: maps[0]['name'],
+      avatar: maps[0]['avatar'],
+      happiness: maps[0]['happiness'],
+    );
   }
 }

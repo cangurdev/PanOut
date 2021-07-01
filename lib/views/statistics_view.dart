@@ -3,25 +3,22 @@ import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/store.dart';
 import 'package:pan_out/theme/constants.dart';
 import 'package:pan_out/theme/size_config.dart';
+import 'package:pan_out/widgets/body/statistics_body.dart';
+import 'package:pan_out/widgets/button/Fab.dart';
+import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
+import 'package:pan_out/widgets/navbar/form_navbar.dart';
 import 'package:provider/provider.dart';
 
-//import widgets
-import 'package:pan_out/widgets/button/Fab.dart';
-import 'package:pan_out/widgets/card/home_card.dart';
-import 'package:pan_out/widgets/navbar/bottom_navbar.dart';
-import 'package:pan_out/widgets/navbar/home_navbar.dart';
+class StatisticsScreen extends StatelessWidget {
+  const StatisticsScreen({Key key}) : super(key: key);
 
-class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //List<Goal> goals = context.read<Store>().goals;
     Map<String, List<Goal>> categories = context.read<Store>().categories;
-
-    SizeConfig().init(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, getProportionateScreenHeight(145)),
-        child: SafeArea(child: HomeNavbar()),
+        child: SafeArea(child: FormNavbar(title: "İstatistikler")),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Fab(),
@@ -36,7 +33,7 @@ class Home extends StatelessWidget {
                 String category = kCategories[index];
                 List<Goal> goals = categories[category];
                 if (goals.length > 0) {
-                  return HomeCard(
+                  return StatisticsBody(
                     category: category,
                     goals: goals,
                     icon: kIcons[index],

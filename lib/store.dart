@@ -71,10 +71,14 @@ class Store extends ChangeNotifier {
 
   void clearGoal() {
     _goal = new Goal(
-      category: "",
+      category: "Özel",
       type: "",
       amount: 0,
       frequency: "günlük",
+      current: 0,
+      total: 0,
+      currentStreak: 0,
+      longestStreak: 0,
     );
     notifyListeners();
   }
@@ -112,6 +116,16 @@ class Store extends ChangeNotifier {
       }
     }
     return 0;
+  }
+
+  void updateTotalAmount(String category, int id, int current) {
+    List<Goal> arr = _categories[category];
+    for (var i = 0; i < arr.length; i++) {
+      Goal goal = arr[i];
+      if (goal.id == id) {
+        _categories[category][i].total += current;
+      }
+    }
   }
 
   void removeFromCategories(String category, int id) {

@@ -6,6 +6,7 @@ import 'package:pan_out/views/goal_last_form_view.dart';
 import 'package:pan_out/views/home_view.dart';
 import 'package:pan_out/views/goal_type_form_view.dart';
 import 'package:pan_out/views/splash_view.dart';
+import 'package:pan_out/views/statistics_view.dart';
 
 final Map<String, WidgetBuilder> routes = {
   '/': (context) => SplashScreen(),
@@ -15,4 +16,5 @@ final Map<String, WidgetBuilder> routes = {
   '/last-form': (context) => GoalLastForm(),
   '/detail': (context) => GoalDetail(),
   '/custom': (context) => CustomGoal(),
+  '/statistics': (context) => StatisticsScreen(),
 };

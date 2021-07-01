@@ -15,7 +15,7 @@ const List<String> kCategories = [
   "Spor",
   "Kitap",
   "Enstrüman",
-  "Özel"
+  "Özel",
 ];
 
 //Icons
@@ -24,18 +24,22 @@ const List<IconData> kIcons = [
   Icons.sports_basketball,
   Icons.book,
   Icons.music_note,
-  Icons.sms
+  Icons.sms,
 ];
 
 //Types
 const kTypes = [
   ["Soru Sayısı", "Çalışma Süresi"],
+  ["Çalışma Süresi", "Kalori Miktarı"],
   ["Sayfa Sayısı", "Kitap Sayısı"],
-  ["aa", "hshshs"],
-  ["Pratik", "Teorik"],
+  ["Pratik Süresi", "Teorik Süresi"],
 ];
 
 //Frequency
-const kFrequencies = ["Günlük","Haftalık","Aylık"];
+const kFrequencies = [
+  "Günlük",
+  "Haftalık",
+  "Aylık",
+];
 
 //const kQuestions = [""]

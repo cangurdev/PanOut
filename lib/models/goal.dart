@@ -6,6 +6,9 @@ class Goal {
   int amount;
   int current;
   String date;
+  int total;
+  int currentStreak;
+  int longestStreak;
 
   Goal({
     this.category,
@@ -14,6 +17,9 @@ class Goal {
     this.amount,
     this.current,
     this.date,
+    this.total,
+    this.currentStreak,
+    this.longestStreak,
   });
 
   Map<String, dynamic> toMap() {
@@ -25,6 +31,9 @@ class Goal {
       'amount': amount,
       'current': current,
       'date': date,
+      'total': total,
+      'currentStreak': currentStreak,
+      'longestStreak': longestStreak,
     };
 
     return map;
@@ -38,5 +47,8 @@ class Goal {
     amount = map["amount"];
     current = map["current"];
     date = map["date"];
+    total = map["total"];
+    currentStreak = map["currentStreak"];
+    longestStreak = map["longestStreak"];
   }
 }

@@ -30,7 +30,7 @@ class GoalLastForm extends StatelessWidget {
                     goalKey: "frequency",
                   ),
                   TextInput(
-                    title: "Kaç sayfa okumak istiyorsun",
+                    title: "Hedef Miktarı Nedir?",
                     goalKey: "amount",
                   ),
                 ],

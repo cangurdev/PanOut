@@ -26,19 +26,25 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> onStart() async {
     List<Goal> goals = await db.goals(); //Get goals from db
-    Pet pet = Pet(
-      id: 1,
-      happiness: 50,
-      name: "Rıfkı",
-    ); //Create initial pet
-    await db.insertPet(pet); //Insert it to db
+    Pet pet = await db.pet();
+
+    if (pet == null) {
+      pet = Pet(
+        id: 1,
+        happiness: 50,
+        name: "Rıfkı",
+      ); //Create initial pet
+      await db.insertPet(pet); //Insert it to db
+    }
+    this.context.read<Store>().setPet(pet); //Set pet state
 
     DateTime now = new DateTime.now();
     DateTime goalDate;
+
     for (var goal in goals) {
       goalDate = DateTime.parse(goal.date);
 
-      if (now.isAfter(goalDate)) {
+      if (now.difference(goalDate).inDays >= 1) {
         goal.current = 0;
         await db.updateGoal(0, goal.id); //Set 0 in db
         this.context.read<Store>().pet.happiness -= 5; //Decrease pet happiness
@@ -54,9 +60,9 @@ class _SplashScreenState extends State<SplashScreen> {
             goalDate.add(const Duration(days: 30));
             break;
         }
+        await db.updateDate(goal.date, goal.id);
       }
     }
-    this.context.read<Store>().setPet(pet); //Set pet state
     this.context.read<Store>().setGoals(goals); //Set goal state
     this.context.read<Store>().setCategories();
   }
