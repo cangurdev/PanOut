@@ -22,7 +22,7 @@ class DatabaseHelper {
 
   void createDb(Database db, int version) async {
     await db.execute(
-      'CREATE TABLE "goals" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, "current" INTEGER)',
+      'CREATE TABLE "goals" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"category"	TEXT,	"type"	TEXT,	"frequency"	TEXT,	"amount"	INTEGER, "current" INTEGER, "date" TEXT)',
     );
     await db.execute(
       'CREATE TABLE "pet" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "avatar"	TEXT,	"name"	TEXT, "happiness"	INTEGER)',

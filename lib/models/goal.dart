@@ -5,6 +5,7 @@ class Goal {
   String frequency;
   int amount;
   int current;
+  String date;
 
   Goal({
     this.category,
@@ -12,6 +13,7 @@ class Goal {
     this.frequency,
     this.amount,
     this.current,
+    this.date,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,9 +23,10 @@ class Goal {
       'type': type,
       'frequency': frequency,
       'amount': amount,
-      'current': current
+      'current': current,
+      'date': date,
     };
-    
+
     return map;
   }
 
@@ -34,5 +37,6 @@ class Goal {
     frequency = map["frequency"];
     amount = map["amount"];
     current = map["current"];
+    date = map["date"];
   }
 }

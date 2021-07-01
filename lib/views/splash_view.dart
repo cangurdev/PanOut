@@ -32,6 +32,30 @@ class _SplashScreenState extends State<SplashScreen> {
       name: "Rıfkı",
     ); //Create initial pet
     await db.insertPet(pet); //Insert it to db
+
+    DateTime now = new DateTime.now();
+    DateTime goalDate;
+    for (var goal in goals) {
+      goalDate = DateTime.parse(goal.date);
+
+      if (now.isAfter(goalDate)) {
+        goal.current = 0;
+        await db.updateGoal(0, goal.id); //Set 0 in db
+        this.context.read<Store>().pet.happiness -= 5; //Decrease pet happiness
+
+        switch (goal.frequency) {
+          case "günlük":
+            goalDate.add(const Duration(days: 1));
+            break;
+          case "haftalık":
+            goalDate.add(const Duration(days: 7));
+            break;
+          default:
+            goalDate.add(const Duration(days: 30));
+            break;
+        }
+      }
+    }
     this.context.read<Store>().setPet(pet); //Set pet state
     this.context.read<Store>().setGoals(goals); //Set goal state
     this.context.read<Store>().setCategories();
