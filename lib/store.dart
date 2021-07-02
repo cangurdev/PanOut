@@ -49,6 +49,15 @@ class Store extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setPetAvatar() {
+    if (_pet.happiness < 55) {
+      _pet.avatar = "assets/images/sad.jpg";
+    } else {
+      _pet.avatar = "assets/images/happy.jpg";
+    }
+    notifyListeners();
+  }
+
   void setGoal(Goal goal) {
     _goal = goal;
     notifyListeners();

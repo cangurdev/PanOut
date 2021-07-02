@@ -26,9 +26,7 @@ class DetailProgress extends StatelessWidget {
               current: goal.current,
             ),
             EditButton(
-              id: goal.id,
-              current: goal.current,
-              category: goal.category,
+              goal: goal,
             ),
             RemoveButton(
               id: goal.id,

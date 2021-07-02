@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pan_out/models/goal.dart';
 import 'package:pan_out/models/pet.dart';
 import 'package:pan_out/services/database_helper.dart';
 import 'package:pan_out/store.dart';
@@ -7,15 +8,10 @@ import 'package:pan_out/widgets/input/text_input.dart';
 import 'package:provider/provider.dart';
 
 class EditButton extends StatelessWidget {
-  final String category;
-  final int id;
-  final int current;
-
+  final Goal goal;
   const EditButton({
     Key key,
-    this.category,
-    this.id,
-    this.current,
+    this.goal,
   }) : super(key: key);
 
   @override
@@ -34,7 +30,7 @@ class EditButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Şu anki Değer: $current",
+                  "Şu anki Değer: ${goal.current}",
                   style: TextStyle(color: Colors.white),
                 ),
                 TextInput(
@@ -45,6 +41,11 @@ class EditButton extends StatelessWidget {
                   onPressed: () async {
                     DatabaseHelper db = new DatabaseHelper();
                     int newCurrent = context.read<Store>().goal.current;
+                    int streak = goal.currentStreak;
+                    int longestStreak = goal.longestStreak;
+                    int id = goal.id;
+                    int current = goal.current;
+                    String category = goal.category;
 
                     await db.updateGoal(
                         newCurrent, id); //Update current amount in db
@@ -56,17 +57,27 @@ class EditButton extends StatelessWidget {
                     int newTotal =
                         newCurrent - current; //Calculate increase amount
                     await db.updateTotal(newTotal, id); //Update amount in db
-                    context.read<Store>().updateTotalAmount(category, id,
-                        newTotal); //Update total amount in state
+                    context.read<Store>().updateTotalAmount(
+                        category, id, newTotal); //Update total amount in state
 
-                    if (newCurrent >= target && current <= target) {
+                    if (newCurrent >= target && current < target) {
                       Pet pet = context.read<Store>().pet;
                       await db.increasePetHappiness(
                           pet.happiness + 5); //Increase pet happiness in db
                       context
                           .read<Store>()
                           .increasePetHappiness(); //Increase pet happiness in state
+                      context.read<Store>().setPetAvatar();
 
+                      await db.updateStreak(streak + 1, id);
+                      if (streak >= longestStreak) {
+                        await db.updateLongestStreak(streak + 1, id);
+                      }
+                      List<Goal> goals = await db.goals();
+
+                      context.read<Store>().setGoals(goals);
+                      context.read<Store>().clearCategories();
+                      context.read<Store>().setCategories();
                     }
                     Navigator.pushNamed(context, "/home");
                   },

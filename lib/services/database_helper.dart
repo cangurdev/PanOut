@@ -49,6 +49,16 @@ class DatabaseHelper {
     await db.rawQuery("UPDATE goals SET total = ? WHERE id = ?", [amount, id]);
   }
 
+  Future<void> updateStreak(int amount, int id) async {
+    final db = await database;
+    await db.rawQuery(
+        "UPDATE goals SET currentStreak = ? WHERE id = ?", [amount, id]);
+  }
+  Future<void> updateLongestStreak(int amount, int id) async {
+    final db = await database;
+    await db.rawQuery(
+        "UPDATE goals SET longestStreak = ? WHERE id = ?", [amount, id]);
+  }
   Future<void> updateDate(String date, int id) async {
     final db = await database;
     await db.rawQuery("UPDATE goals SET date = ? WHERE id = ?", [date, id]);

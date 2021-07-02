@@ -29,7 +29,7 @@ class HomeNavbar extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              "assets/images/avatar.jpg",
+             context.read<Store>().pet.avatar,
               width: 120,
             ),
             Padding(
@@ -38,7 +38,10 @@ class HomeNavbar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Rıfkı", style: TextStyle(color: Colors.white)),
+                  Text(
+                    context.read<Store>().pet.name,
+                    style: TextStyle(color: Colors.white),
+                  ),
                   SizedBox(
                     height: 8,
                   ),

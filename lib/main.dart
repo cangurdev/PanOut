@@ -10,7 +10,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   final Goal goal = new Goal(
     category: "Özel",
     type: "",
@@ -25,7 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ListenableProvider<Store>(create: (_) => Store(goal))],
+      providers: [
+        ListenableProvider<Store>(
+          create: (_) => Store(goal),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
